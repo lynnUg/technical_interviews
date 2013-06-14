@@ -1,0 +1,101 @@
+public Node reverse(Node start)
+	{
+	   if(start==null)
+	   	{
+	   	   return null;
+	   	}
+	   if(start.getNext()==null)
+	   {
+	       return start;
+	   }
+	    Node current=start;
+        Node prev=null;
+        Node next=null;
+	   while(current!=null)
+	   	{
+	   	  next=current.getNext();
+	   	  current.setNext(prev);
+	   	  if(next==null)
+	   	  {
+	   	    break;
+	   	  }
+	   	  prev=current;
+	   	  current=next;
+
+	   	}
+
+	   	return current;
+	}
+
+public Node reverse(Node start)
+	{
+	   if(start==null)
+	   	{
+	   	   return null;
+	   	}
+	   if(start.getNext()==null)
+	    {
+	       return start;
+	    }
+
+	    Node secondElem=start.getNext();
+	    start.setNext(null);
+
+	    reverse(secondElem);
+	    Node reverseRest =secondElem.setNext(start);
+
+	    secondElem.setNext(start);
+
+	    return reverseRest;
+
+	}
+
+ public boolean anagram(String first ,String second)
+ 	{
+ 	  if(first.length()!=second.length())
+ 	  	{
+ 	  	  return false;
+ 	  	}
+ 	  	Char [] elements1 = first.toLowerCase().toCharArray();
+ 	  	Char [] elements2 = second.toLowerCase().toCharArray();
+
+ 	  	Map <Character ,Integer > match = new HashMap <Character , Integer> ();
+ 	  	for(char a : elements1)
+ 	  		{
+ 	  		   if(match.containsKey(a))
+ 	  		    {
+ 	  		      match.put(a.match.get(a)+1);
+ 	  		    }
+ 	  		    else
+ 	  		    {
+ 	  		      match.put(a,1)
+ 	  		    }
+
+ 	  		}
+ 	  	for(char a : elements2)
+ 	  		{
+ 	  		   	if(match.containsKey(a))
+ 	  		   	{
+ 	  		   	   int i=match.get(a);
+ 	  		   	   if(i==1) match.remove(a);
+ 	  		   	   else 
+ 	  		   	   {
+ 	  		   	     i--;
+ 	  		   	     match.put(a,i);
+ 	  		   	   }
+ 	  		   	}
+ 	  		   	else
+ 	  		   	{
+ 	  		   	  return false;
+ 	  		   	}
+ 	  		}
+ 	  	 if(match,Empty())
+ 	  	 {
+ 	  	  return true;
+
+ 	  	 }
+ 	  	 else
+ 	  	 {
+ 	  	   return false;
+ 	  	 }
+ 	}
