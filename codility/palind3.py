@@ -1,3 +1,7 @@
+#Write a function
+#def solution(S)
+#that, given a string S of length N letters, returns the number of palindromic slices of S. The function should return −1 if this number is greater than 100,000,000.
+#For example, for string S = baababa the function should return 6, because exactly six of its slices are palindromic; namely: (0, 3), (1, 2), (2, 4), (2, 6), (3, 5), (4, #6).
 def solution(A):
     list=[]
     for item in A:
@@ -28,6 +32,7 @@ def solution(A):
             centre=i
             right=i+count2[i]
     new_count=[x/2 for x in count2]
+    print count2
     return sum( new_count)
 if __name__ == '__main__':
     A="abababbbabbbaba"
