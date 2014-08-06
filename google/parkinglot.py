@@ -1,5 +1,4 @@
-def findPark2(cars,index):
-	
+def findPark(cars,index):
 	left=cars[:index+1]
 	right=cars[index:]
 	print left, right
@@ -8,7 +7,6 @@ def findPark2(cars,index):
 	i=len(left)-1
 	print i
 	while (i>0) & (len(left)>1):
-		print "test"
 		if left[i-1]!='-':
 			temp=left[i]
 			left[i]=left[i-1]
@@ -23,7 +21,6 @@ def findPark2(cars,index):
 	if not Found:
 		swap=0
 	j=0
-	print "here"
 	while (j<len(right)-1) & (len(right)>1) & (not Found):
 		if right[j+1]!='-':
 			temp=right[j]
@@ -37,4 +34,5 @@ def findPark2(cars,index):
 		print right
 		print j
 	return "no empty park"
-print findPark2([1,2,3,4,5,"-",7],0)
+print findPark([1,2,3,4,5,"-",7],0)
+
