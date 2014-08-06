@@ -1,4 +1,6 @@
 class bitFlipper:
+	def __init__(self):
+		pass
 	def minFlip(self,binary_string):
 		if binary_string=="":
 			return 0
