@@ -1,37 +1,35 @@
 class BinaryCode:
-	def performDecode(self,encoded_bits,one_or_zero):
-		encoded_length=len(encoded_bits)
-		original_bits=[one_or_zero for i in range(len(encoded_bits))]
+	def performDecode(self,Q,b):
+		P=[b for i in range(len(Q))]
 		
-		if(encoded_length<2):
-			if(encoded_bits[0]!=original_bits[0]):
-				original_bits[0]=2
-			return ''.join(str(i) for i in original_bits)
+		if(len(Q)<2):
+			if(Q[0]!=P[0]):
+				P[0]=2
+			return ''.join(str(i) for i in P)
 
-		original_bits[1]=encoded_bits[0]-original_bits[0]
-		for i in range(2,len(encoded_bits)):
-			original_bits[i]=encoded_bits[i-1]-original_bits[i-1]-original_bits[i-2]
+		P[1]=Q[0]-P[0]
+		for i in range(2,len(Q)):
+			P[i]=Q[i-1]-P[i-1]-P[i-2]
 		
-		return ''.join(str(i) for i in original_bits)
-	def check(self,decoded_bits):
-		for bit in decoded_bits:
+		return ''.join(str(i) for i in P)
+	def check(self,Q):
+		for bit in Q:
 			if bit>"1" or bit<"0":
 				return False
 		return True
 
 	def decode(self,bits):
-		bits_list=[int(bit) for bit in bits]
-		estimate_zero=self.performDecode(bits_list,0)
-		estimate_one=self.performDecode(bits_list,1)
-		print estimate_zero
-		output_zero="NONE"
-		output_one="NONE"
-		if (self.check(estimate_zero)):
-			output_zero=estimate_zero
-		if(self.check(estimate_one)):
-			output_one=estimate_one
+		Q=[int(bit) for bit in bits]
+		P0=self.performDecode(Q,0)
+		P1=self.performDecode(Q,1)
+		O0="NONE"
+		O1="NONE"
+		if (self.check(P0)):
+			O0=P0
+		if(self.check(P1)):
+			O1=P1
 
-		return(output_zero,output_one)
+		return(O0,O1)
 
 
 test=BinaryCode()
