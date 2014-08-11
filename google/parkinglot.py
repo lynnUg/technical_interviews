@@ -1,3 +1,4 @@
+
 def findPark(cars,index):
 	left=cars[:index+1]
 	right=cars[index:]
