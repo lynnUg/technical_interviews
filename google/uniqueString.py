@@ -59,6 +59,14 @@ def anagrams(S,T):
 
 assert anagrams("listen","silent")==True
 
+def anagrams(S,T):
+	Q=list(S)
+	P=list(T)
+	Q=sorted(S)
+	P=sorted(P)
+	if S==P:
+		return True
+	return False
 def removeSpace(S):
 	return S.replace(" ","")
 assert removeSpace("test test")=="testtest"
