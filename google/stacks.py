@@ -123,3 +123,48 @@ def isRoute2(G,start, end):
 					visited.append(node)
 					Q.append(node)
 	return False
+class BinaryNode(object):
+	def __init__(self,data):
+		self.left=None
+		self.right=None
+
+def balancedbinary(arr):
+	if len(arr)<1:
+		return None
+	mid=len(arr)/2
+	tree=BinaryNode(arr[mid])
+	tree.left=balancedbinary(arr[:mid])
+	tree.right=balancedbinary(arr[mid+1:])
+	return tree
+def getLinks(G,tree):
+	visited=[]
+	P=[]
+	Q=[]
+	P.append(tree)
+	while len(P)>0:
+		Z=[]
+		for node in G[tree]:
+			if not node in visited:
+				for nod in G[node]:
+					Z.append(nod)
+				visited.append(node)
+				P.append(node)
+		Q.append(Z)
+def preorder(G):
+	print G.data
+	if(G.left!=None):
+		preorder(G.left)
+	if(G.right!=None):
+		preorder(G.right)
+def inorder(G):
+	if(G.left!=None):
+		preorder(G.left)
+	print G.data
+	if(G.right!=None):
+		preorder(G.right)
+def postorder(G):
+	if(G.left!=None):
+		preorder(G.left)
+	if(G.right!=None):
+		preorder(G.right)
+	print G.data
