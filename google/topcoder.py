@@ -276,3 +276,35 @@ def lexseq(A):
 
 	#pass
 print lexseq("CABDEAFDEGSDABCDEADFGSEFBGS")
+def swap(L,i,j):
+	print "j",i,j
+	temp=L[i]
+	L[i]=L[j]
+	L[j]=temp
+	#print L
+
+
+
+def findLargestNumber(Num):
+	A=str(Num)
+	L=[]
+	for i in A:
+		L.append(int(i))
+	#print L
+	for i in range(len(L)-2,0,-1):
+		if L[i]<L[i+1]:
+			#print "iii",L[i],L[i+1]
+			temp=i+1
+			for j in range(i+1,len(L)):
+				#print "test" ,L[j],L[i]
+				if L[j]<=L[i]:
+					#print "other"
+					temp=j-1
+					break
+				else:
+					#print "here"
+					temp=j
+
+			swap(L,i,temp)
+			return L
+print findLargestNumber(1232)
