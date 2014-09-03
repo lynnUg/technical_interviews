@@ -22,11 +22,17 @@ while True:
             unvisited[neighbour] = newDistance
     visited[current] = currentDistance
     del unvisited[current]
-    if not unvisited: break
+    print visited,unvisited ,current
+    if not unvisited:
+        #print unvisited
+        #print "here" 
+        break
     candidates = [node for node in unvisited.items() if node[1]]
+    print candidates
     current, currentDistance = sorted(candidates, key = lambda x: x[1])[0]
 
 print(visited)
+print(unvisited)
 
 if __name__ == "__main__":
   print __name__
